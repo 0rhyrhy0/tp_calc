@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tp_calc/static/css/main.74413302.css",
+    "main.js": "/tp_calc/static/js/main.94795e5e.js",
+    "index.html": "/tp_calc/index.html",
+    "main.74413302.css.map": "/tp_calc/static/css/main.74413302.css.map",
+    "main.94795e5e.js.map": "/tp_calc/static/js/main.94795e5e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.74413302.css",
+    "static/js/main.94795e5e.js"
+  ]
+}
