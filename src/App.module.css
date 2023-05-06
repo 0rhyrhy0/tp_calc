@@ -1,0 +1,61 @@
+body {
+  background: linear-gradient(45deg, #1f1e33, #331e2e);
+  color: white;
+  align-items: center;
+  width:auto;
+  height:auto;
+}
+input, button {
+  background-color: inherit;
+  border: 1px solid white;
+  border-radius: 5px;
+  color: white;
+}
+input {
+  padding: 10px;
+  margin: 10px;
+  width: 8vw;
+}
+input.TP {
+  width: 20vw;
+}
+button {
+  background: linear-gradient(215deg, #8682dd, #dd82c7);
+  border: none;
+  color: white;
+  width: 30vw;
+}
+table {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-collapse: collapse;
+  border: 10px solid;
+  border-image: linear-gradient(215deg, #8682dd, #dd82c7) 1;
+  margin: 10vh 10vw;
+  padding: 10px;
+  font-size: 3vh;
+}
+tr {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-collapse: collapse;
+}
+td {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-collapse: collapse;
+  height: 15vh;
+  padding: 10px;
+}
+/* media query for small screens */
+@media screen and (max-width: 530px) {
+  input, button { font-size: 1vh; }
+  input         { width: 40%; }
+  button        { width: 100%; }
+  td            { padding: 10px 0; }
+}
