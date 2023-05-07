@@ -7,28 +7,26 @@ const Input = ({
   value,
   setValue,
   width = '8vw'
-}) => {
-  return (
-    <td colSpan={colSpan}>
-      {valueName}
-      <input
-        type='Number'
-        className={valueName}
-        id={valueName}
-        placeholder='0'
-        value={value}
-        onChange={(e)=>setValue(Number(e.target.value))}
-        style={{
-          width: width
-        }}
-      />
-    </td>
-  );
-};
+}) => (
+  <td colSpan={colSpan}>
+    <span> {valueName} </span>
+    <input
+      type='Number'
+      className={valueName}
+      id={valueName}
+      placeholder='0'
+      value={value}
+      onChange={(e)=>setValue(Number(e.target.value))}
+      style={{
+        width: width
+      }}
+    />
+  </td>
+);
 
-const ResultCalcButton = ({getResult, result}) => (
+
+const ResultCalcButton = ({result}) => (
   <td colSpan="4">
-    <button id="calc" onClick={getResult}>Calculate</button>
     <span id="lemon" style={{fontSize:'1rem'}}>{result}</span>
   </td>
 );
@@ -41,15 +39,30 @@ function App() {
   const [Miss, setMiss]       = useState(0);
 
   const [result, setResult] = useState(0);
-  const getResult = ()=>{
+  // const getResult = ()=>{
+  //   let Notes = Perfect + Good + Bad + Miss;
+  //   let lemons = (100/30) * Perfect + Good - (TP / 30) * Notes;
+  //   lemons = Math.round(lemons);
+  //   if(0<=lemons && lemons<=Perfect)
+  //     setResult("You made " + lemons + " lemon" + (lemons>1 ? 's' : ''));
+  //   else
+  //     setResult("You might entered something wrong...");
+  // };
+  useEffect(() => {
     let Notes = Perfect + Good + Bad + Miss;
     let lemons = (100/30) * Perfect + Good - (TP / 30) * Notes;
     lemons = Math.round(lemons);
-    if(0<=lemons && lemons<=Perfect)
+
+    if(0<lemons && lemons<=Perfect)
       setResult("You made " + lemons + " lemon" + (lemons>1 ? 's' : ''));
+
+    else if(lemons === 0)
+      setResult("You made no lemons!");
+
     else
       setResult("You might entered something wrong...");
-  };
+
+  }, [TP, Perfect, Good, Bad, Miss]);
 
   return (
     <div className='HTMLbody'>
@@ -86,10 +99,7 @@ function App() {
           />
         </tr>
         <tr>
-          <ResultCalcButton
-            getResult={getResult}
-            result={result}
-          />
+          <ResultCalcButton result={result} />
         </tr>
       </tbody></table>
     </div>
